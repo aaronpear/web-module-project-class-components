@@ -3,7 +3,6 @@ import React from "react";
 class Todo extends React.Component {
     constructor() {
         super();
-
     }
     
     handleClick = () => {
@@ -11,7 +10,6 @@ class Todo extends React.Component {
     }
 
     render() {
-        console.log(this.props.item);
         return (
             <div onClick={this.handleClick}>
                 <p>{this.props.item.task}</p>

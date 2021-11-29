@@ -47,7 +47,6 @@ class App extends React.Component {
   }
 
   handleInput = (event) => {
-    console.log(event.target.value);
     this.setState({
       ...this.state,
       input: event.target.value
@@ -67,7 +66,15 @@ class App extends React.Component {
       ...this.state,
       toDoList: [...this.state.toDoList, newTask]
     });
+  }
 
+  handleClear = () => {
+    this.setState({
+      ...this.state,
+      toDoList: this.state.toDoList.filter(item => {
+        return (!item.checked);
+      })
+    });
   }
 
   render() {
@@ -75,7 +82,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList toDoList={this.state.toDoList} handleToggle={this.handleToggle} />
-        <TodoForm handleInput={this.handleInput} handleAddTask={this.handleAddTask} />
+        <TodoForm handleInput={this.handleInput} handleAddTask={this.handleAddTask} handleClear={this.handleClear} />
       </div>
     );
   }

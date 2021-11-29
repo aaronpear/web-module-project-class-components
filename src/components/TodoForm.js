@@ -13,13 +13,19 @@ class TodoForm extends React.Component {
         this.props.handleAddTask(event);
     }
 
+    clearCompleted = () => {
+        this.props.handleClear();
+    }
+
     render() {
         return (
-            <form>
-                <input type='text' name='todo-input' onChange={this.onChange} />
-                <button onClick={this.addTask}>Add Todo</button>
-                <button>Clear Completed</button>
-            </form>
+            <div>
+                <form>
+                    <input type='text' name='todo-input' onChange={this.onChange} />
+                    <button onClick={this.addTask}>Add Todo</button>
+                </form>
+                <button onClick={this.clearCompleted}>Clear Completed</button>
+            </div>
         )
     }
 }
