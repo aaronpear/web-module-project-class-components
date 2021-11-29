@@ -9,11 +9,15 @@ class TodoForm extends React.Component {
         this.props.handleInput(event);
     }
 
+    addTask = (event) => {
+        this.props.handleAddTask(event);
+    }
+
     render() {
         return (
             <form>
                 <input type='text' name='todo-input' onChange={this.onChange} />
-                <button>Add Todo</button>
+                <button onClick={this.addTask}>Add Todo</button>
                 <button>Clear Completed</button>
             </form>
         )

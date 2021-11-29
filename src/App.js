@@ -54,12 +54,28 @@ class App extends React.Component {
     });
   }
 
+  handleAddTask = (event) => {
+    event.preventDefault();
+
+    const newTask = {
+      task: this.state.input,
+      id: this.state.toDoList.length,
+      checked: false
+    };
+
+    this.setState({
+      ...this.state,
+      toDoList: [...this.state.toDoList, newTask]
+    });
+
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList toDoList={this.state.toDoList} handleToggle={this.handleToggle} />
-        <TodoForm handleInput={this.handleInput} />
+        <TodoForm handleInput={this.handleInput} handleAddTask={this.handleAddTask} />
       </div>
     );
   }
