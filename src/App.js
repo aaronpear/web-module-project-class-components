@@ -28,15 +28,38 @@ class App extends React.Component {
     super();
 
     this.state = {
-      toDoList: toDoList
+      toDoList: toDoList,
+      input: ''
     }
   }
+
+  handleToggle = (event) => {
+    this.setState({
+      ...this.state,
+      toDoList: this.state.toDoList.map(item => {
+        if (item.id === event.id) {
+          return {...item, checked: !item.checked}
+        } else {
+          return item;
+        }
+      })
+    });
+  }
+
+  handleInput = (event) => {
+    console.log(event.target.value);
+    this.setState({
+      ...this.state,
+      input: event.target.value
+    });
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList toDoList={this.state.toDoList} />
-        <TodoForm toDoList={this.state.toDoList} />
+        <TodoList toDoList={this.state.toDoList} handleToggle={this.handleToggle} />
+        <TodoForm handleInput={this.handleInput} />
       </div>
     );
   }
