@@ -7,6 +7,16 @@ const toDoList = [
     task: 'Make a To Do List app',
     id: 0,
     checked: false
+  },
+  {
+    task: 'Build TodoList component',
+    id: 1,
+    checked: false
+  },
+  {
+    task: 'Build more stuff',
+    id: 2,
+    checked: false
   }
 ];
 
@@ -25,8 +35,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList  />
-        <TodoForm />
+        <TodoList toDoList={this.state.toDoList} />
+        <TodoForm toDoList={this.state.toDoList} />
       </div>
     );
   }

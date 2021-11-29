@@ -9,7 +9,9 @@ class TodoForm extends React.Component {
     render() {
         return (
             <div>
-                
+                <input type='text'></input>
+                <button>Add Todo</button>
+                <button>Clear Completed</button>
             </div>
         )
     }
